@@ -1,0 +1,30 @@
+* {
+    background-image: none;
+    font-family: "Roboto", "JetBrainsMono Nerd Font", sans-serif;
+    box-shadow: none;
+}
+
+window {
+    background-color: rgba(11, 10, 8, 0.85); /* Dark ink backdrop */
+}
+
+grid {
+    margin: 250px 200px; /* Increased vertical margin to squash button height */
+}
+
+button {
+    color: #F5E1B5;
+    background-color: #16120C;
+    border: 1px solid #3A2C14;
+    border-radius: 32px;
+    margin: 16px;
+    font-size: 64px; /* Reduced from 100px so icon fits centered in the square */
+    transition: all 0.2s ease-in-out;
+}
+
+button:focus, button:hover {
+    background-color: #221A0E;
+    border: 2px solid #FFC766;
+    color: #FFC766;
+    border-radius: 12px;
+}

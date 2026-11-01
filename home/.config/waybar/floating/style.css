@@ -1,0 +1,220 @@
+/* ==========================================================
+   Floating "islands" bar: amber on ink, glassy capsules
+   (pairs with floating/config.jsonc)
+   GTK CSS can't blur what is behind the bar, so the glass
+   look comes from translucency, a faint top highlight,
+   a soft drop shadow and an amber hairline edge.
+   ========================================================== */
+
+@define-color ink     #0B0A08;
+@define-color surface #16120C;
+@define-color raised  #221A0E;
+@define-color edge    #3A2C14;
+@define-color cream   #F5E1B5;
+@define-color dim     #A8895A;
+@define-color amber   #FFC766;
+@define-color orange  #FF9F3F;
+@define-color red     #E5533D;
+
+* {
+  font-family: Roboto, "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+/* the bar itself is invisible; only the islands show */
+window#waybar {
+  background: transparent;
+  color: @cream;
+}
+
+/* ---------- the three islands ---------- */
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 3px 0;
+  padding: 0 6px;
+  background: linear-gradient(135deg, alpha(@surface, 0.92), alpha(@ink, 0.88));
+  border: 1px solid alpha(@amber, 0.16);
+  border-radius: 24px;
+  box-shadow: 0 8px 24px alpha(@ink, 0.6), inset 0 1px 0 alpha(@cream, 0.06);
+}
+
+/* ---------- modules inside an island: quiet until hovered ---------- */
+#custom-launcher,
+#custom-browse,
+#custom-term,
+#custom-files,
+#tray,
+#power-profiles-daemon,
+#pulseaudio,
+#network,
+#battery,
+#clock {
+  margin: 5px 2px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+#custom-browse:hover,
+#custom-term:hover,
+#custom-files:hover,
+#power-profiles-daemon:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover {
+  background: alpha(@amber, 0.12);
+  box-shadow: 0 0 14px alpha(@amber, 0.18);
+}
+
+/* ---------- launcher: the one solid amber accent ---------- */
+#custom-launcher {
+  color: @ink;
+  font-size: 17px;
+  margin: 5px 6px 5px 3px;
+  padding: 0 16px;
+  background: @amber;
+  box-shadow: 0 0 16px alpha(@amber, 0.35);
+}
+
+#custom-launcher:hover {
+  background: @amber;
+  box-shadow: 0 0 22px alpha(@amber, 0.55);
+}
+
+/* ---------- pinned apps ---------- */
+#custom-browse,
+#custom-term,
+#custom-files {
+  font-size: 16px;
+  color: @cream;
+}
+
+#custom-browse:hover,
+#custom-term:hover,
+#custom-files:hover {
+  color: @amber;
+}
+
+/* ---------- workspaces: pills, the active one stretches ---------- */
+#workspaces,
+#ext-workspaces {
+  margin: 5px 2px;
+}
+
+#workspaces button,
+#ext-workspaces button {
+  min-width: 14px;
+  padding: 0 10px;
+  margin: 0 2px;
+  border-radius: 14px;
+  background: alpha(@cream, 0.06);
+  color: @dim;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+#workspaces button:hover,
+#ext-workspaces button:hover {
+  background: alpha(@amber, 0.16);
+  color: @amber;
+}
+
+#workspaces button.active,
+#ext-workspaces button.active {
+  min-width: 26px;
+  padding: 0 14px;
+  background: @amber;
+  color: @ink;
+  font-weight: 800;
+  box-shadow: 0 0 16px alpha(@amber, 0.4);
+}
+
+#workspaces button.urgent,
+#ext-workspaces button.urgent {
+  background: @red;
+  color: @ink;
+}
+
+/* ---------- open windows ---------- */
+#taskbar {
+  margin: 5px 2px;
+}
+
+#taskbar button {
+  padding: 0 8px;
+  margin: 0 2px;
+  border-radius: 14px;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+#taskbar button:hover {
+  background: alpha(@amber, 0.12);
+}
+
+/* the focused window glows and gets an amber underline */
+#taskbar button.active {
+  background: alpha(@amber, 0.18);
+  box-shadow: inset 0 -2px 0 @amber, 0 0 14px alpha(@amber, 0.2);
+}
+
+/* ---------- status ---------- */
+#power-profiles-daemon {
+  font-size: 15px;
+}
+#power-profiles-daemon.performance { color: @amber; }
+#power-profiles-daemon.balanced    { color: @cream; }
+#power-profiles-daemon.power-saver { color: @dim; }
+
+#pulseaudio.muted { color: @dim; }
+#network.disconnected { color: @dim; }
+
+#clock {
+  color: @amber;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0 14px;
+  background: alpha(@amber, 0.1);
+  border: 1px solid alpha(@amber, 0.22);
+}
+
+#clock:hover {
+  background: alpha(@amber, 0.2);
+  box-shadow: 0 0 14px alpha(@amber, 0.25);
+}
+
+#tray > .passive         { -gtk-icon-effect: dim; }
+#tray > .needs-attention { -gtk-icon-effect: highlight; }
+
+/* low battery: the pill breathes red (GTK only animates colours) */
+#battery.critical:not(.charging) {
+  animation-name: breathe;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes breathe {
+  to { background-color: alpha(@red, 0.35); }
+}
+
+/* ---------- tooltips ---------- */
+tooltip {
+  background: @surface;
+  border: 1px solid @edge;
+  border-radius: 14px;
+}
+
+tooltip label {
+  color: @cream;
+  padding: 2px 6px;
+}

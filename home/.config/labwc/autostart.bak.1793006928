@@ -1,0 +1,3 @@
+swaybg -i ~/Pictures/wall.png -m fit -c '#000000' &
+waybar &
+mako &

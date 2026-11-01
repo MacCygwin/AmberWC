@@ -1,0 +1,71 @@
+* { 
+  font-family: Roboto, "JetBrainsMono Nerd Font"; 
+  font-size: 13px; 
+  border: none;
+}
+
+window#waybar { 
+  background: rgba(11, 10, 8, 0.85); 
+  color: #F5E1B5; 
+  border-top: 1px solid rgba(58, 44, 20, 0.5);
+  border-radius: 15px 15px 0px 0px;
+}
+
+#custom-launcher { 
+  color: #FFC766; 
+  font-size: 16px; 
+  padding: 0 16px; 
+  margin: 6px 4px;
+  background: #16120C;
+  border-radius: 16px;
+}
+
+#custom-launcher:hover, #custom-browse:hover, #custom-term:hover, #custom-files:hover {
+  background: #221A0E;
+}
+
+#custom-browse, #custom-term, #custom-files { 
+  padding: 0 12px; 
+  font-size: 16px;
+  color: #F5E1B5;
+  background: #16120C;
+  margin: 6px 4px;
+  border-radius: 16px;
+}
+
+#taskbar button { 
+  padding: 0 8px; 
+  margin: 6px 2px; 
+  border-radius: 12px; 
+  background: rgba(22, 18, 12, 0.5);
+}
+
+#taskbar button.active { 
+  background: #221A0E; 
+  border-bottom: 2px solid #FFC766; 
+}
+
+#taskbar button:hover {
+  background: #221A0E;
+  border-radius: 12px;
+  border-top: 2px solid #FFC766; 
+}
+
+#tray, #pulseaudio, #network, #battery, #clock {
+  background: #16120C; 
+  padding: 0 12px; 
+  margin: 6px 3px; 
+  border-radius: 16px;
+}
+
+#clock { 
+  color: #FFC766; 
+  font-weight: bold;
+}
+
+#battery.warning { color: #FF9F3F; }
+#battery.critical { color: #E5533D; }
+
+#pulseaudio:hover, #network:hover, #battery:hover, #clock:hover {
+  background: #221A0E;
+}

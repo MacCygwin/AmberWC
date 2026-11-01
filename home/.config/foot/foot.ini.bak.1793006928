@@ -1,0 +1,24 @@
+[main]
+font=JetBrainsMono Nerd Font:size=11
+pad=14x12
+
+[colors]
+alpha=0.92
+background=0b0a08
+foreground=f5e1b5
+regular0=16120c
+regular1=e5533d
+regular2=a8b04a
+regular3=ffc766
+regular4=8fa8c8
+regular5=c78aa0
+regular6=7fb5a8
+regular7=f5e1b5
+bright0=5a4a30
+bright1=f07a66
+bright2=c4cb6e
+bright3=ffd98f
+bright4=aec2dc
+bright5=dba6b8
+bright6=a0cdc2
+bright7=fff3d6

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<labwc_config>
+  <theme>
+    <name>ChromeOS</name>
+    <cornerRadius>8</cornerRadius>
+    <dropShadows>yes</dropShadows>
+    <font place="ActiveWindow"><name>Roboto</name><size>10</size></font>
+    <font place="InactiveWindow"><name>Roboto</name><size>10</size></font>
+  </theme>
+  <keyboard>
+    <default />
+    <keybind key="W-space">
+       <action name="Execute" command="fuzzel" />
+    </keybind>
+  </keyboard>
+</labwc_config>

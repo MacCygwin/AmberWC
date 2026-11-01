@@ -1,0 +1,20 @@
+# 1. Inform systemd that the graphical session is active (Fixes volume/DBus delay)
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+systemctl -q --no-block --user start labwc-session.target
+
+# 2. Start lightweight clipboard daemons immediately
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
+
+# 3. Fire up the wallpaper and UI components concurrently without blocking
+swaybg -i ~/Pictures/wall.png -m fit -c '#000000' &[cite: 1]
+waybar &
+mako &
+
+# 4. Defer idle/DPMS management slightly so it doesn't fight for CPU during the initial burst
+(sleep 1 && swayidle -w \
+  timeout 300 'swaylock -f' \
+  timeout 600 'wlopm --off "*"' resume 'wlopm --on "*"' \
+  before-sleep 'swaylock -f') &
+
+polkit-agent &

@@ -1,0 +1,13 @@
+border.width: 0
+padding.width: 10
+window.label.text.justify: left
+window.active.title.bg.color: #221A0E
+window.inactive.title.bg.color: #16120C
+window.active.label.text.color: #F5E1B5
+window.inactive.label.text.color: #A8895A
+window.active.button.unpressed.image.color: #FFC766
+window.inactive.button.unpressed.image.color: #A8895A
+menu.items.bg.color: #16120C
+menu.items.text.color: #F5E1B5
+menu.items.active.bg.color: #221A0E
+menu.items.active.text.color: #FFC766

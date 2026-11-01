@@ -1,0 +1,69 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 48,
+  "margin-top": 4,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "modules-left": ["custom/launcher"],
+  "modules-center": ["custom/browse", "custom/term", "custom/files", "wlr/taskbar"],
+  "modules-right": ["tray", "pulseaudio", "network", "battery", "clock"],
+  
+  "custom/launcher": { 
+    "format": " ", 
+    "on-click": "pkill -x rofi || rofi -show drun -theme ~/.config/rofi/themes/launcher.rasi", 
+    "tooltip": false 
+  },
+  "custom/browse": {
+    "format": "󰖟",
+    "on-click": "firefox",
+    "tooltip": false
+  },
+  "custom/term": { 
+    "format": "󰆍", 
+    "on-click": "foot", 
+    "tooltip": false 
+  },
+  "custom/files": { 
+    "format": "󰉋", 
+    "on-click": "pcmanfm", 
+    "tooltip": false 
+  },
+  "wlr/taskbar": { 
+    "format": "{icon}", 
+    "icon-size": 22, 
+    "icon-theme": "Papirus-Dark",
+    "spacing": 8,
+    "on-click": "activate", 
+    "on-click-middle": "close",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "on-click-right": "~/.local/bin/qs-panel",
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟 muted",
+    "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+  "network": {
+    "on-click": "~/.local/bin/qs-panel",
+    "format-wifi": "󰖩",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)"
+  },
+  "battery": {
+    "on-click": "~/.local/bin/qs-panel",
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+  "clock": {
+    "on-click": "~/.local/bin/qs-panel",
+    "format": "{:%H:%M}", 
+    "tooltip-format": "{:%A, %B %d, %Y}",
+    "on-click-right": "~/.local/bin/calendar-popup"
+  }
+}

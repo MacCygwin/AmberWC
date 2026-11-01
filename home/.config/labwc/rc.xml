@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<labwc_config>
+  <theme>
+    <name>ChromeOS</name>
+    <cornerRadius>12</cornerRadius>
+    <dropShadows>yes</dropShadows>
+    <font place="ActiveWindow"><name>Roboto</name><size>10</size></font>
+    <font place="InactiveWindow"><name>Roboto</name><size>10</size></font>
+  </theme>
+  <keyboard>
+    <default />
+    <keybind key="W-space">
+      <action name="Execute" command="sh -c 'pkill -x rofi || rofi -show drun -theme ~/.config/rofi/themes/launcher.rasi'" />
+    </keybind>
+
+    <keybind key="W-q">
+      <action name="Close" />
+    </keybind>
+
+    <keybind key="W-S-e">
+      <action name="Exit" />
+    </keybind>
+
+    <keybind key="W-l">
+      <action name="Execute" command="swaylock -f" />
+    </keybind>
+
+    <keybind key="W-e">
+      <action name="Execute" command="pcmanfm" />
+    </keybind>
+
+    <keybind key="W-f">
+      <action name="ToggleFullscreen" />
+    </keybind>
+
+    <keybind key="W-m">
+      <action name="ToggleMaximize" direction="both" />
+    </keybind>
+
+    <keybind key="W-S-m">
+      <action name="Iconify"/>
+    </keybind>
+
+    <keybind key="Print">
+      <action name="Execute" command="~/.local/bin/shot full" />
+    </keybind>
+
+    <keybind key="S-Print">
+      <action name="Execute" command="~/.local/bin/shot area" />
+    </keybind>
+
+    <keybind key="W-S-s">
+      <action name="Execute" command="~/.local/bin/shot area" />
+    </keybind>
+
+    <keybind key="W-x">
+      <action name="Execute" command="wlogout -b 4" />
+    </keybind>
+
+    <keybind key="W-v">
+      <action name="Execute" command="sh -c 'pkill -x rofi || cliphist list | rofi -dmenu -display-columns 2 -p Clipboard -theme ~/.config/rofi/themes/list.rasi | cliphist decode | wl-copy'" />
+    </keybind>
+
+    <keybind key="W-Tab">
+      <action name="GoToDesktop" to="right" wrap="yes" />
+    </keybind>
+
+    <keybind key="W-S-Tab">
+      <action name="GoToDesktop" to="left" wrap="yes" />
+    </keybind>
+
+    <keybind key="W-1"><action name="GoToDesktop" to="1" /></keybind>
+    <keybind key="W-2"><action name="GoToDesktop" to="2" /></keybind>
+    <keybind key="W-3"><action name="GoToDesktop" to="3" /></keybind>
+    <keybind key="W-4"><action name="GoToDesktop" to="4" /></keybind>
+
+    <keybind key="W-S-1"><action name="SendToDesktop" to="1" follow="no" /></keybind>
+    <keybind key="W-S-2"><action name="SendToDesktop" to="2" follow="no" /></keybind>
+    <keybind key="W-S-3"><action name="SendToDesktop" to="3" follow="no" /></keybind>
+    <keybind key="W-S-4"><action name="SendToDesktop" to="4" follow="no" /></keybind>
+
+    <!-- Quick settings panel / notification history -->
+    <keybind key="W-s">
+      <action name="Execute" command="~/.local/bin/qs-panel" />
+    </keybind>
+
+    <keybind key="W-n">
+      <action name="Execute" command="~/.local/bin/notif-history" />
+    </keybind>
+
+    <!-- Volume Controls -->
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>bash -c 'wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+; ~/.config/mako/vol-not.sh'</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>bash -c 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; ~/.config/mako/vol-not.sh'</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>bash -c 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; ~/.config/mako/vol-not.sh'</command>
+      </action>
+    </keybind>
+
+    <!-- Brightness Controls -->
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>bash -c 'brightnessctl set +5%; ~/.config/mako/bri-not.sh'</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>bash -c 'brightnessctl set 5%-; ~/.config/mako/bri-not.sh'</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-S-w">
+	    <action name="Execute" command="bash ~/.config/waybar/waybar_switch.sh" />
+    </keybind>
+
+    <!-- Left / Right Halves (Split screen) -->
+    <keybind key="W-Left">
+      <action name="SnapToEdge" direction="left" />
+    </keybind>
+
+    <keybind key="W-Right">
+      <action name="SnapToEdge" direction="right" />
+    </keybind>
+
+    <!-- Top / Bottom Halves -->
+    <keybind key="W-Up">
+      <action name="SnapToEdge" direction="up" />
+    </keybind>
+
+    <keybind key="W-Down">
+      <action name="SnapToEdge" direction="down" />
+    </keybind>
+
+    <!-- Quadrants (Corners) -->
+    <keybind key="W-C-Left">
+      <action name="SnapToEdge" direction="up-left" />
+    </keybind>
+
+    <keybind key="W-C-Right">
+      <action name="SnapToEdge" direction="up-right" />
+    </keybind>
+    <!-- ===== Tiling-style layouts (Super+Alt = layouts, Super+Ctrl+Shift = bottom corners) ===== -->
+    <!-- bottom corners (the top corners are W-C-Left / W-C-Right above) -->
+    <keybind key="W-C-S-Left"><action name="SnapToRegion" region="bottom-left" /></keybind>
+    <keybind key="W-C-S-Right"><action name="SnapToRegion" region="bottom-right" /></keybind>
+
+    <!-- master (60%) + stack (40%) -->
+    <keybind key="W-A-Left"><action name="SnapToRegion" region="master" /></keybind>
+    <keybind key="W-A-Right"><action name="SnapToRegion" region="stack" /></keybind>
+    <keybind key="W-A-Up"><action name="SnapToRegion" region="stack-top" /></keybind>
+    <keybind key="W-A-Down"><action name="SnapToRegion" region="stack-bottom" /></keybind>
+
+    <!-- thirds -->
+    <keybind key="W-A-1"><action name="SnapToRegion" region="third-1" /></keybind>
+    <keybind key="W-A-2"><action name="SnapToRegion" region="third-2" /></keybind>
+    <keybind key="W-A-3"><action name="SnapToRegion" region="third-3" /></keybind>
+
+    <!-- hide / show the title bar of the focused window -->
+    <keybind key="W-d"><action name="ToggleDecorations" /></keybind>
+  </keyboard>
+
+  <libinput>
+    <device category="touchpad">
+      <naturalScroll>yes</naturalScroll>
+      <tap>yes</tap>
+    </device>
+  </libinput>
+
+  <!-- New windows open in the largest free area instead of cascading -->
+  <placement>
+    <policy>automatic</policy>
+  </placement>
+
+  <!-- Focus follows the mouse (needs real movement, so scrolling/keys don't steal focus) -->
+  <focus>
+    <followMouse>yes</followMouse>
+    <followMouseRequiresMovement>yes</followMouseRequiresMovement>
+    <raiseOnFocus>no</raiseOnFocus>
+  </focus>
+
+  <!-- Snap regions: used by the SnapToRegion keybinds, or hold Super while dragging a window -->
+  <regions>
+    <region name="top-left"     x="0%"  y="0%"  height="50%"  width="50%" />
+    <region name="top-right"    x="50%" y="0%"  height="50%"  width="50%" />
+    <region name="bottom-left"  x="0%"  y="50%" height="50%"  width="50%" />
+    <region name="bottom-right" x="50%" y="50%" height="50%"  width="50%" />
+    <region name="master"       x="0%"  y="0%"  height="100%" width="60%" />
+    <region name="stack"        x="60%" y="0%"  height="100%" width="40%" />
+    <region name="stack-top"    x="60%" y="0%"  height="50%"  width="40%" />
+    <region name="stack-bottom" x="60%" y="50%" height="50%"  width="40%" />
+    <region name="third-1"      x="0%"  y="0%"  height="100%" width="33%" />
+    <region name="third-2"      x="33%" y="0%"  height="100%" width="34%" />
+    <region name="third-3"      x="67%" y="0%"  height="100%" width="33%" />
+  </regions>
+
+  <windowRules>
+    <!-- Full tiling look: uncomment to remove title bars from every window
+         (Alt+drag moves, Alt+right-drag resizes, Super+D brings one back)
+    <windowRule identifier="*" serverDecoration="no" />
+    -->
+    <windowRule identifier="qs-nmtui">
+      <action name="ResizeTo" width="780" height="500" />
+      <action name="MoveTo" x="1128" y="520" />
+    </windowRule>
+  </windowRules>
+
+  <windowSwitcher preview="no" outlines="yes">
+    <osd style="thumbnail" />
+  </windowSwitcher>
+
+  <desktops number="4" />
+
+</labwc_config>

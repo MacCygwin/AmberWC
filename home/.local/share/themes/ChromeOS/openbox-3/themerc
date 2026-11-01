@@ -1,0 +1,25 @@
+# ChromeOS-style Labwc / Openbox Theme
+border.width: 1
+border.color: #3A2C14
+padding.width: 10
+padding.height: 6
+
+window.client.padding.width: 0
+window.client.padding.height: 0
+
+window.handle.width: 0
+
+window.active.title.bg.color: #16120C
+window.inactive.title.bg.color: #0b0a08
+
+window.active.label.text.color: #FFC766
+window.inactive.label.text.color: #A8895A
+window.label.text.justify: left
+
+window.active.button.unpressed.image.color: #FFC766
+window.inactive.button.unpressed.image.color: #A8895A
+
+menu.items.bg.color: #16120C
+menu.items.text.color: #F5E1B5
+menu.items.active.bg.color: #221A0E
+menu.items.active.text.color: #FFC766
