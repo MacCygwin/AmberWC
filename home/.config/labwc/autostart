@@ -18,3 +18,4 @@ mako &
   before-sleep 'swaylock -f') &
 
 polkit-agent &
+poweralertd &
