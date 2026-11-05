@@ -84,6 +84,10 @@
       <action name="Execute" command="~/.local/bin/qs-panel" />
     </keybind>
 
+    <keybind key="W-i">
+      <action name="Execute" command="~/.local/bin/settings-hub" />
+    </keybind>
+
     <keybind key="W-n">
       <action name="Execute" command="~/.local/bin/notif-history" />
     </keybind>
