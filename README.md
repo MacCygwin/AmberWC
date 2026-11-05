@@ -37,6 +37,8 @@ small tools (labwc, waybar, rofi, mako, foot) and one colour scheme, ink and amb
 ## Features
 
 - **Quick-settings panel** (`Super+S`, or click the status pills): Wi-Fi, Bluetooth, Do Not Disturb, volume, brightness, power profile, notification history and the power menu. Left/Right adjust sliders.
+- **Quick-settings panel** (`Super+S`, or click the status pills): Wi-Fi and Bluetooth (press Right to pick a network or device), Do Not Disturb, night light, volume and brightness sliders, power profile, notification history, settings, lock and the power menu.
+- **Settings hub** (`Super+I`): one list that opens the right tool for network, Bluetooth, sound, display, appearance, bar style and system info.
 - **Calendar**: right-click the clock. Left/Right change month.
 - **Notification history** (`Super+N`): Enter copies the text.
 - **Clipboard history** (`Super+V`) via cliphist.
@@ -56,6 +58,7 @@ small tools (labwc, waybar, rofi, mako, foot) and one colour scheme, ink and amb
 | `Super+Space` | Launcher |
 | `Super+E` | File manager |
 | `Super+S` | Quick-settings panel |
+| `Super+I` | Settings hub |
 | `Super+N` | Notification history |
 | `Super+V` | Clipboard history |
 | `Super+X` | Power menu |
