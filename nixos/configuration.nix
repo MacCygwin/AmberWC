@@ -113,6 +113,12 @@
     localsend
     nwg-look              # GTK/Qt theme configurator
 
+    wiremix        # sound mixer (terminal)
+    bluetui        # Bluetooth (terminal)
+    wdisplays      # monitor layout
+    wlsunset       # night light
+    fastfetch      # system info
+
     kdePackages.qt6ct
     kdePackages.qtstyleplugin-kvantum
     libsForQt5.qt5ct
