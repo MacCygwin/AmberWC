@@ -14,7 +14,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.luks.devices."luks-469beb31-e4de-4b65-9ede-8bc190458f71".device = "/dev/disk/by-uuid/469beb31.e4de-4b65-9ede-8bc190458f71";
+  boot.initrd.luks.devices."FILLIN".device = "/dev/disk/by-uuid/FILLIN";
   networking.hostName = "nixyo"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
