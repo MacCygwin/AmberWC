@@ -12,7 +12,7 @@
   
   "custom/launcher": { 
     "format": " ", 
-    "on-click": "pkill -x rofi || rofi -show drun -theme ~/.config/rofi/themes/launcher.rasi", 
+    "on-click": "nwg-drawer", 
     "tooltip": false 
   },
   "custom/browse": {
@@ -40,30 +40,40 @@
     "tooltip": false
   },
   "pulseaudio": {
-    "on-click-right": "~/.local/bin/qs-panel",
+    "on-click-right": "swaync-client -t -sw",
     "format": "{icon}  {volume}%",
     "format-muted": "󰝟 muted",
     "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   },
   "network": {
-    "on-click": "~/.local/bin/qs-panel",
+    "on-click": "swaync-client -t -sw",
     "format-wifi": "󰖩",
     "format-ethernet": "󰈀",
     "format-disconnected": "󰖪",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)"
   },
   "battery": {
-    "on-click": "~/.local/bin/qs-panel",
+    "on-click": "swaync-client -t -sw",
     "states": { "warning": 30, "critical": 15 },
     "format": "{icon}  {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   },
   "clock": {
-    "on-click": "~/.local/bin/qs-panel",
-    "format": "{:%H:%M}", 
-    "tooltip-format": "{:%A, %B %d, %Y}",
-    "on-click-right": "~/.local/bin/calendar-popup"
+    "format": "{:%H:%M}",
+    "tooltip-format": "<big>{:%A, %B %d, %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#FFC766'><b>{}</b></span>",
+        "weekdays": "<span color='#A8895A'>{}</span>",
+        "days": "<span color='#F5E1B5'>{}</span>",
+        "today": "<span color='#FFC766'><b><u>{}</u></b></span>"
+      }
+    },
+    "on-click": "swaync-client -t -sw",
+    "actions": { "on-scroll-up": "shift_up", "on-scroll-down": "shift_down", "on-click-right": "mode" }
   }
 }

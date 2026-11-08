@@ -1,0 +1,30 @@
+window {
+  background-color: rgba(11, 10, 8, 0.90);
+  color: #F5E1B5;
+  font-family: Roboto, "JetBrainsMono Nerd Font";
+}
+entry {
+  background: #221A0E;
+  color: #F5E1B5;
+  border: 1px solid #3A2C14;
+  border-radius: 26px;
+  padding: 10px 20px;
+  min-height: 28px;
+  margin: 48px 360px 24px 360px;
+}
+entry:focus { border-color: #FFC766; }
+button, image { background: none; border: none; box-shadow: none; }
+button {
+  color: #F5E1B5;
+  padding: 14px 6px;
+  margin: 6px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+button:hover, button:focus {
+  background: #221A0E;
+  border: 1px solid #FFC766;
+  color: #FFC766;
+}
+#category-button { margin: 0 10px; }
+#pinned-box { padding-bottom: 20px; border-bottom: 1px solid #3A2C14; }

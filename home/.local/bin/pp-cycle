@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Cycle power profile: power-saver -> balanced -> performance (skips ones this machine lacks)
+cur=$(powerprofilesctl get)
+order=(power-saver balanced performance power-saver balanced performance)
+found=0
+for p in "${order[@]}"; do
+    if [ "$found" = 1 ] && powerprofilesctl set "$p" 2>/dev/null; then
+        notify-send -a power "Power profile" "$p"; exit 0
+    fi
+    [ "$p" = "$cur" ] && found=1
+done

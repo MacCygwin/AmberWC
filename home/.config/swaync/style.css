@@ -1,0 +1,76 @@
+/* amber / ink palette: edit colours here once */
+@define-color ink     #0B0A08;
+@define-color surface #16120C;
+@define-color raised  #221A0E;
+@define-color border  #3A2C14;
+@define-color text    #F5E1B5;
+@define-color dim     #A8895A;
+@define-color accent  #FFC766;
+@define-color crit    #E5533D;
+
+* { font-family: "Roboto", "JetBrainsMono Nerd Font"; font-size: 13px; }
+
+.blank-window { background: transparent; }
+
+/* ---------- popups ---------- */
+.notification-row { outline: none; }
+.notification {
+  background: alpha(@surface, 0.94);
+  border: 1px solid @border;
+  border-radius: 16px;
+  margin: 6px 8px;
+  padding: 0;
+  color: @text;
+}
+.notification.critical { border-color: @crit; }
+.notification-content { background: transparent; padding: 10px; }
+.notification-default-action { background: transparent; border-radius: 16px; padding: 0; color: @text; }
+.notification-default-action:hover { background: alpha(@raised, 0.7); }
+.summary { font-size: 14px; font-weight: bold; color: @text; }
+.time { font-size: 11px; color: @dim; }
+.body { color: @dim; }
+.close-button { background: @raised; color: @text; border-radius: 12px; margin: 6px; padding: 0 4px; }
+.close-button:hover { background: @accent; color: @ink; }
+.notification-action { background: @raised; border: 1px solid @border; border-radius: 12px; color: @text; margin: 4px; }
+.notification-action:hover { border-color: @accent; color: @accent; }
+
+/* ---------- control center ---------- */
+.control-center {
+  background: alpha(@surface, 0.96);
+  border: 1px solid @border;
+  border-radius: 28px;
+  padding: 14px;
+}
+.control-center-list { background: transparent; }
+.control-center-list-placeholder { color: @dim; opacity: 0.6; }
+.control-center .notification { background: @raised; }
+
+.widget-title { margin: 4px 8px; font-size: 16px; color: @text; }
+.widget-title > button {
+  background: @raised; border: 1px solid @border; border-radius: 14px;
+  color: @text; padding: 4px 14px;
+}
+.widget-title > button:hover { border-color: @accent; color: @accent; }
+
+.widget-dnd { margin: 4px 8px; color: @text; }
+.widget-dnd > switch { background: @raised; border: 1px solid @border; border-radius: 14px; }
+.widget-dnd > switch:checked { background: @accent; }
+.widget-dnd > switch slider { background: @text; border-radius: 12px; }
+
+.widget-volume, .widget-backlight {
+  background: @raised; border: 1px solid @border; border-radius: 18px;
+  padding: 8px 14px; margin: 4px 8px; color: @text;
+}
+scale trough { background: @border; min-height: 8px; border-radius: 8px; }
+scale highlight { background: @accent; border-radius: 8px; }
+scale slider { background: @text; min-width: 16px; min-height: 16px; border-radius: 999px; margin: -4px; }
+
+.widget-buttons-grid { margin: 4px; }
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: @raised; border: 1px solid @border; border-radius: 18px;
+  color: @text; padding: 12px; margin: 4px;
+}
+.widget-buttons-grid > flowbox > flowboxchild > button:hover { border-color: @accent; }
+.widget-buttons-grid > flowbox > flowboxchild > button:checked { background: @accent; color: @ink; }
+
+

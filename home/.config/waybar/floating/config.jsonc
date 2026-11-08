@@ -6,7 +6,7 @@
   "margin-top": 8,
   "margin-left": 14,
   "margin-right": 14,
-  "margin-bottom": 0,
+  "margin-bottom": 8,
   "spacing": 2,
 
   "modules-left": ["custom/launcher", "ext/workspaces"],
@@ -15,7 +15,7 @@
 
   "custom/launcher": {
     "format": "󱄅",
-    "on-click": "pkill -x rofi || rofi -show drun -theme ~/.config/rofi/themes/launcher.rasi",
+    "on-click": "nwg-drawer",
     "tooltip": false
   },
   "custom/browse": { "format": "󰖟", "on-click": "firefox", "tooltip": false },
@@ -23,9 +23,17 @@
   "custom/files":  { "format": "󰉋", "on-click": "pcmanfm", "tooltip": false },
 
   "ext/workspaces": {
-    "format": "{name}",
+    "format": "{icon}",
     "on-click": "activate",
-    "sort-by-name": false
+    "format-icons": {
+	"Workspace 1": "",
+	"Workspace 2": "",
+	"Workspace 3": "",
+	"Workspace 4": "",
+	"active": "",
+	"default": ""
+    },
+    "sort-by-id": true
   },
 
   "wlr/taskbar": {
@@ -61,7 +69,7 @@
     "tooltip-format": "{desc}",
     "scroll-step": 5,
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "~/.local/bin/qs-panel"
+    "on-click-right": "swaync-client -t -sw"
   },
 
   "network": {
@@ -70,7 +78,7 @@
     "format-disconnected": "<span foreground='#A8895A'>󰖪</span> Offline",
     "tooltip-format-wifi": "{essid}  ·  {signalStrength}%\n{ipaddr}",
     "tooltip-format-ethernet": "{ifname}  ·  {ipaddr}",
-    "on-click": "~/.local/bin/qs-panel"
+    "on-click": "swaync-client -t -sw"
   },
 
   "battery": {
@@ -81,13 +89,23 @@
     "format-critical": "<span foreground='#E5533D'>{icon}</span> {capacity}%",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip-format": "{capacity}%  ·  {timeTo}",
-    "on-click": "~/.local/bin/qs-panel"
+    "on-click": "swaync-client -t -sw"
   },
 
   "clock": {
     "format": "{:%H:%M}",
-    "tooltip-format": "{:%A, %d %B %Y}",
-    "on-click": "~/.local/bin/qs-panel",
-    "on-click-right": "~/.local/bin/calendar-popup"
+    "tooltip-format": "<big>{:%A, %B %d, %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#FFC766'><b>{}</b></span>",
+        "weekdays": "<span color='#A8895A'>{}</span>",
+        "days": "<span color='#F5E1B5'>{}</span>",
+        "today": "<span color='#FFC766'><b><u>{}</u></b></span>"
+      }
+    },
+    "on-click": "swaync-client -t -sw",
+    "actions": { "on-scroll-up": "shift_up", "on-scroll-down": "shift_down", "on-click-right": "mode" }
   }
 }

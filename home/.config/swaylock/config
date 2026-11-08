@@ -1,28 +1,41 @@
+# --- Background & Scaling ---
 image=~/Pictures/lock.png
 scaling=fill
 color=000000
 
+# --- Effects ---
+effect-blur=7x4
+effect-vignette=0.25:0.5
+
+# --- Clock & Date (Fixed Multi-line) ---
 clock
 timestr=%H:%M
-datestr=%A, %B %d
+datestr=%d %b %Y
 font=Inter
-font-size=24
+font-size=48
 
+# --- Indicator & Layout ---
 indicator
 indicator-idle-visible
-indicator-radius=100
+indicator-radius=150
 indicator-thickness=6
-effect-blur=9x5
-effect-vignette=0.4:0.6
 
-inside-color=16120c
+# --- Color Palette ---
+inside-color=16120cdd
 ring-color=3a2c14
 line-color=00000000
+separator-color=00000000
 text-color=f5e1b5
+
 key-hl-color=ffc766
 bs-hl-color=e5533d
-inside-ver-color=16120c
+
+inside-ver-color=16120cff
 ring-ver-color=ffc766
-inside-wrong-color=16120c
+line-ver-color=00000000
+
+inside-wrong-color=2a120cff
 ring-wrong-color=e5533d
+line-wrong-color=00000000
+
 show-failed-attempts

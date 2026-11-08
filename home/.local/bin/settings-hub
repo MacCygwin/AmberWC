@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# The swaync "Settings" tile and Super+I both call this.
+exec amber-settings

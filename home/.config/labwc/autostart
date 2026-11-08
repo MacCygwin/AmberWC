@@ -7,9 +7,11 @@ wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 
 # 3. Fire up the wallpaper and UI components concurrently without blocking
-swaybg -i ~/Pictures/wall.png -m fit -c '#000000' &[cite: 1]
+swaybg -i ~/Pictures/wall.png -m fit -c '#000000' &
 waybar &
-mako &
+swaync &
+swayosd-server &
+nwg-drawer -r -c 5 -is 56 -nocats -nofs -ovl -term foot -fm pcmanfm -s drawer.css &
 
 # 4. Defer idle/DPMS management slightly so it doesn't fight for CPU during the initial burst
 (sleep 1 && swayidle -w \

@@ -1,0 +1,13 @@
+window#osd {
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid #3A2C14;
+  background: alpha(#16120C, 0.94);
+}
+window#osd #container { margin: 15px 5px; }
+window#osd image { color: #FFC766; }
+window#osd label { color: #F5E1B5; font-family: "Roboto"; }
+window#osd progressbar:disabled, window#osd image:disabled { opacity: 0.5; }
+window#osd progressbar { min-height: 6px; border-radius: 999px; background: transparent; border: none; }
+window#osd trough { min-height: inherit; border-radius: inherit; border: none; background: #3A2C14; }
+window#osd progress { min-height: inherit; border-radius: inherit; border: none; background: #FFC766; }

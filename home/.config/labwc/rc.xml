@@ -10,15 +10,11 @@
   <keyboard>
     <default />
     <keybind key="W-space">
-      <action name="Execute" command="sh -c 'pkill -x rofi || rofi -show drun -theme ~/.config/rofi/themes/launcher.rasi'" />
+      <action name="Execute" command="nwg-drawer" />
     </keybind>
 
     <keybind key="W-q">
       <action name="Close" />
-    </keybind>
-
-    <keybind key="W-S-e">
-      <action name="Exit" />
     </keybind>
 
     <keybind key="W-l">
@@ -58,7 +54,7 @@
     </keybind>
 
     <keybind key="W-v">
-      <action name="Execute" command="sh -c 'pkill -x rofi || cliphist list | rofi -dmenu -display-columns 2 -p Clipboard -theme ~/.config/rofi/themes/list.rasi | cliphist decode | wl-copy'" />
+      <action name="Execute" command="sh -c 'pkill -x fuzzel || cliphist list | fuzzel --dmenu -p &quot;Clipboard  &quot; | cliphist decode | wl-copy'" />
     </keybind>
 
     <keybind key="W-Tab">
@@ -81,47 +77,51 @@
 
     <!-- Quick settings panel / notification history -->
     <keybind key="W-s">
-      <action name="Execute" command="~/.local/bin/qs-panel" />
+      <action name="Execute" command="swaync-client -t -sw" />
+    </keybind>
+
+    <keybind key="W-i">
+      <action name="Execute" command="~/.local/bin/settings-hub" />
     </keybind>
 
     <keybind key="W-n">
-      <action name="Execute" command="~/.local/bin/notif-history" />
+      <action name="Execute" command="swaync-client -t -sw" />
     </keybind>
 
     <!-- Volume Controls -->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>bash -c 'wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+; ~/.config/mako/vol-not.sh'</command>
+        <command>swayosd-client --output-volume raise</command>
       </action>
     </keybind>
 
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>bash -c 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; ~/.config/mako/vol-not.sh'</command>
+        <command>swayosd-client --output-volume lower</command>
       </action>
     </keybind>
 
     <keybind key="XF86AudioMute">
       <action name="Execute">
-        <command>bash -c 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; ~/.config/mako/vol-not.sh'</command>
+        <command>swayosd-client --output-volume mute-toggle</command>
       </action>
     </keybind>
 
     <!-- Brightness Controls -->
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
-        <command>bash -c 'brightnessctl set +5%; ~/.config/mako/bri-not.sh'</command>
+        <command>swayosd-client --brightness raise</command>
       </action>
     </keybind>
 
     <keybind key="XF86MonBrightnessDown">
       <action name="Execute">
-        <command>bash -c 'brightnessctl set 5%-; ~/.config/mako/bri-not.sh'</command>
+        <command>swayosd-client --brightness lower</command>
       </action>
     </keybind>
 
     <keybind key="W-S-w">
-	    <action name="Execute" command="bash ~/.config/waybar/waybar_switch.sh" />
+      <action name="Execute" command="bash ~/.config/waybar/waybar_switch.sh" />
     </keybind>
 
     <!-- Left / Right Halves (Split screen) -->
@@ -209,7 +209,7 @@
          (Alt+drag moves, Alt+right-drag resizes, Super+D brings one back)
     <windowRule identifier="*" serverDecoration="no" />
     -->
-    <windowRule identifier="qs-nmtui">
+    <windowRule identifier="amber-tui">
       <action name="ResizeTo" width="780" height="500" />
       <action name="MoveTo" x="1128" y="520" />
     </windowRule>

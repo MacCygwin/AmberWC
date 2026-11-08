@@ -1,0 +1,64 @@
+{
+  "positionX": "right",
+  "positionY": "bottom",
+  "control-center-positionX": "right",
+  "control-center-positionY": "bottom",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "control-center-margin-bottom": 12,
+  "control-center-margin-right": 12,
+  "control-center-width": 420,
+  "control-center-height": 600,
+  "notification-window-width": 400,
+  "notification-icon-size": 48,
+  "fit-to-screen": false,
+  "hide-on-action": true,
+  "hide-on-clear": false,
+  "keyboard-shortcuts": true,
+  "timeout": 5,
+  "timeout-low": 2,
+  "timeout-critical": 0,
+  "transition-time": 150,
+  "widgets": ["buttons-grid", "volume", "backlight", "dnd", "title", "notifications"],
+  "widget-config": {
+    "title": { "text": "Notifications", "clear-all-button": true, "button-text": "Clear" },
+    "dnd": { "text": "Do Not Disturb" },
+    "volume": { "label": "\uf028" },
+    "backlight": { "label": "\uf185", "device": "intel_backlight" },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "\uf1eb   Wi-Fi",
+          "type": "toggle",
+          "active": true,
+          "command": "sh -c 'if [ \"$SWAYNC_TOGGLE_STATE\" = true ]; then nmcli radio wifi on; else nmcli radio wifi off; fi'",
+          "update_command": "sh -c '[ \"$(nmcli radio wifi)\" = enabled ] && echo true || echo false'"
+        },
+        {
+          "label": "\uf293   Bluetooth",
+          "type": "toggle",
+          "active": false,
+          "command": "sh -c 'if [ \"$SWAYNC_TOGGLE_STATE\" = true ]; then bluetoothctl power on; else bluetoothctl power off; fi'",
+          "update_command": "sh -c 'bluetoothctl show | grep -q \"Powered: yes\" && echo true || echo false'"
+        },
+        {
+          "label": "\uf186   Night light",
+          "type": "toggle",
+          "active": false,
+	  "command": "sh -c 'if [ \"$SWAYNC_TOGGLE_STATE\" = true ]; then wlsunset -T 6000 -t 3500 -S 07:00 -s 19:00 & else pkill -x wlsunset; fi'",
+  	  "update_command": "sh -c 'pgrep -x wlsunset >/dev/null && echo true || echo false'"
+        },
+	{
+  	  "label": "\uf0e7 Power profile",
+  	  "command": "~/.local/bin/pp-cycle"
+	},
+        { "label": "\uf013   Settings", 
+	  "command": "~/.local/bin/settings-hub" 
+	},
+        { "label": "\uf011   Power", 
+          "command": "wlogout -b 4" 
+	}
+      ]
+    }
+  }
+}

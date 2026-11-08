@@ -1,1 +1,7 @@
 *.pre-dotfiles.*
+/apply.sh
+/MIGRATE.md
+*.bak
+*.bak.*
+/home/.config/waybar/config.jsonc
+/home/.config/waybar/style.css

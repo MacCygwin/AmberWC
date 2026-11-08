@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./amber-settings.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -13,6 +14,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  boot.initrd.luks.devices."luks-469beb31-e4de-4b65-9ede-8bc190458f71".device = "/dev/disk/by-uuid/469beb31.e4de-4b65-9ede-8bc190458f71";
   networking.hostName = "nixyo"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -63,9 +65,9 @@
   };
 
   # Define a user account. Don't forget to set a password with 'passwd'.
-  users.users."testyo" = {
+  users.users."YOURNAME" = {
     isNormalUser = true;
-    description = "yourname";
+    description = "Your Name";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
@@ -91,8 +93,6 @@
     swaybg
     foot
     waybar
-    rofi                  # launcher + clipboard picker (Wayland-native since rofi 2.0)
-    mako
     grim slurp
     wl-clipboard
     cliphist
@@ -107,11 +107,16 @@
     libnotify
     swayidle
     wlopm                 # screen off on idle (used by swayidle)
-    jq                    # parses makoctl history for the notification list
     (writeShellScriptBin "polkit-agent" "exec ${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1")  # password prompts for admin actions; started from labwc autostart
     poweralertd           # low-battery / plug-in notifications through mako (needs services.upower)
     localsend
     nwg-look              # GTK/Qt theme configurator
+
+    wiremix        # sound mixer (terminal)
+    bluetui        # Bluetooth (terminal)
+    wdisplays      # monitor layout
+    wlsunset       # night light
+    fastfetch      # system info
 
     kdePackages.qt6ct
     kdePackages.qtstyleplugin-kvantum
