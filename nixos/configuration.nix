@@ -111,6 +111,9 @@
     poweralertd           # low-battery / plug-in notifications through mako (needs services.upower)
     localsend
     nwg-look              # GTK/Qt theme configurator
+    swaynotificationcenter
+    swayosd
+    nwg-drawer
 
     wiremix        # sound mixer (terminal)
     bluetui        # Bluetooth (terminal)
